@@ -1,0 +1,170 @@
+[
+  {
+    "text": "",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  },
+  {
+    "text": "Gym: Monday,Wednesday,Friday",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  },
+  {
+    "text": "Gym: Monday,Wednesday,Friday 18:00",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  },
+  {
+    "text": "Gym: Monday 18:00-19:00",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  },
+  {
+    "text": "Work: weekdays 09:00-17:00",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  },
+  {
+    "text": "Rent: 1st monthly",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  },
+  {
+    "text": "Therapy: 2nd Tuesday monthly 17:30",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  },
+  {
+    "text": "Payday: 25th monthly\n\nWrok: everyday",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  },
+  {
+    "text": "Vacation: 2027-07-12..2027-07-23",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  },
+  {
+    "text": "Medication: every 8h @ 2026-10-05 07:00",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  },
+  {
+    "text": "Football: Saturday 11:00-12:30",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  },
+  {
+    "text": "Groceries: every Sunday 10:00-11:00",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  },
+  {
+    "text": "Date night: every 2 weeks Friday 19:00",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  },
+  {
+    "text": "Car service: 2027-03-15 09:00-12:00",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  },
+  {
+    "text": "Project deadline: 2027-04-30",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  },
+  {
+    "text": "Work: weekdays 09:00-17:00\n  except 2027-12-24",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  },
+  {
+    "text": "Gym: Monday,Wednesday,Friday 18:00-19:00\n  except 2026-12-25",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  },
+  {
+    "text": "Team meeting: every 2 weeks Thursday 10:00 @ 2026-10-08\n  except 2026-12-24 , 2026-12-31",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  },
+  {
+    "text": "Night shift: 4on/4off 22:00-06:00 @ 2027-01-04",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  },
+  {
+    "text": "Salary: 25th monthly\n  ~ previous business day",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  },
+  {
+    "text": "Physio: 1st, 3rd Tuesday monthly 18:00\n  except 2027-12-21",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  },
+  {
+    "text": "Rent: 1st monthly\n  ~ previous business day",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  },
+  {
+    "text": "Doctor: 2nd Tuesday monthly 15:30\n  except 2027-08-10\n  except 2027-12-14",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  },
+  {
+    "text": "Payday: 25th monthly\n  ~ previous business day",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  },
+  {
+    "text": "Dentist: 2nd Tuesday monthly 15:30\n  except 2027-08-10",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  },
+  {
+    "text": "Guys work: 2on/2off 06:00-18:00 @ 2026-10-01",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  },
+  {
+    "text": "Trash:1st, 13th monthly",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  },
+  {
+    "text": "Something: 2nd, 3rd monday,wednesday monthly\n",
+    "startRule": "",
+    "selectedGrammar": "Timefold",
+    "shouldMatch": true
+  }
+]

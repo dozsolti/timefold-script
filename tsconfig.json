@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "rootDir": "src" /* Specify the root folder within your source files. */,
+        "target": "ESNext" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
+        "declaration": true /* Generate .d.ts files from TypeScript and JavaScript files in your project. */,
+        "declarationMap": false /* Generate declaration map files. */,
+        "sourceMap": false /* Generate source map files to help in debugging. Helps in showing original code instead of the compiled. */,
+        "strict": true /* Enable all strict type-checking options. */,
+        "skipLibCheck": true /* Skip type checking all .d.ts files. */,
+        "esModuleInterop": true /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */,
+        "outDir": "dist" /* Specify an output folder for all emitted files. */,
+        "declarationDir": "dist/types" /* Specify an output folder for all .d.ts emitted files */,
+        "module": "ESNext" /* Specify what module code is generated. */,
+        "noImplicitAny": false,
+    },
+    "include": [
+        "src"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

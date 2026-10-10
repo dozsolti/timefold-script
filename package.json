@@ -1,0 +1,39 @@
+{
+  "name": "timefold-script",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/types/index.d.ts",
+  "module": "./dist/index.js",
+  "source": "./src/index.ts",
+  "scripts": {
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "clean": "rm -rf dist",
+    "start": "tsx src/index.ts",
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Write it in Fold.",
+  "devDependencies": {
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "vitest": "^2.1.9"
+  },
+  "dependencies": {
+    "date-fns": "^4.4.0",
+    "ohm-js": "^17.5.0"
+  },
+  "files": [
+    "dist/types"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  }
+}
