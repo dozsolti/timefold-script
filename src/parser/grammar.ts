@@ -20,6 +20,7 @@ Timefold {
     | MonthlyPosition DayOfWeek "monthly" Time? -- monthlyWeekdayPositions // Therapy: 2nd Tuesday monthly 17:30
     | MonthlyPosition ("," MonthlyPosition)* DayOfWeek ("," DayOfWeek)* "monthly" Time? -- monthlyWeekdaysPositions // Something: 2nd, 3rd monday,wednesday monthly
     | Day ".." Day Time? -- dayRange // Vacation: 2027-07-12..2027-07-23
+    | Day Hour ".." Day Hour -- dayRangeWithHours // Vacation: 2017-02-03 18:01 - 2017-02-17 06:00
     | Day Time? -- day // Car service: 2027-03-15 09:00-12:00
    
  EveryRange

@@ -1,16 +1,13 @@
-/*
 import { expect, test } from "vitest";
 import { parseGrammar } from "../../src/index";
 import type {
   GrammarMonthlyPositions,
-  GrammarMonthlyWeekdayPosition,
+  GrammarMonthlyWeekdayPositions,
 } from "../../src/types/grammar";
 import type { ParseResult } from "../../src/types";
 
 test("command monthly", () => {
-  const monthly1st = parseGrammar<GrammarMonthlyPositions>(
-    "Rent: 1st monthly",
-  );
+  const monthly1st = parseGrammar<GrammarMonthlyPositions>("Rent: 1st monthly");
   const expectedMonthly1st: ParseResult<GrammarMonthlyPositions> = {
     success: true,
     data: {
@@ -40,10 +37,10 @@ test("command monthly", () => {
   };
   expect(monthlyMultiple).toEqual(expectedMonthlyMultiple);
 
-  const monthlyWeekdayPosition = parseGrammar<GrammarMonthlyWeekdayPosition>(
+  const monthlyWeekdayPosition = parseGrammar<GrammarMonthlyWeekdayPositions>(
     "Therapy: 2nd Tuesday monthly 17:30",
   );
-  const expectedMonthlyWeekdayPosition: ParseResult<GrammarMonthlyWeekdayPosition> =
+  const expectedMonthlyWeekdayPosition: ParseResult<GrammarMonthlyWeekdayPositions> =
     {
       success: true,
       data: {
@@ -61,11 +58,10 @@ test("command monthly", () => {
     };
   expect(monthlyWeekdayPosition).toEqual(expectedMonthlyWeekdayPosition);
 
-  const monthlyWeekdaysPositions =
-    parseGrammar<GrammarMonthlyWeekdayPosition>(
-      "Something: 2nd, 3rd monday,wednesday monthly",
-    );
-  const expectedMonthlyWeekdaysPositions: ParseResult<GrammarMonthlyWeekdayPosition> =
+  const monthlyWeekdaysPositions = parseGrammar<GrammarMonthlyWeekdayPositions>(
+    "Something: 2nd, 3rd monday,wednesday monthly",
+  );
+  const expectedMonthlyWeekdaysPositions: ParseResult<GrammarMonthlyWeekdayPositions> =
     {
       success: true,
       data: {
@@ -80,4 +76,3 @@ test("command monthly", () => {
     };
   expect(monthlyWeekdaysPositions).toEqual(expectedMonthlyWeekdaysPositions);
 });
-*/

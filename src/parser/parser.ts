@@ -7,8 +7,13 @@ import {
   GrammarWeekdays,
   GrammarDays,
   GrammarRotation,
+  GrammarMonthlyPositions,
+  GrammarMonthlyWeekdayPositions,
+  GrammarDay,
+  GrammarDayRange,
+  GrammarDayRangeWithHours,
 } from "../types/grammar";
-import { StartingFrom, Time } from "../types/units";
+import { DayOfWeek, StartingFrom, Time, TimeRange } from "../types/units";
 import {
   getOptionalChild,
   formatTimeRangeNode,
@@ -101,6 +106,47 @@ semantics.addOperation("eval", {
       time: formatTimeRangeNode(timeNode),
     };
   },
+  Rule_day: function (dayNode, timeNode): GrammarDay {
+    return {
+      type: "day",
+      day: dayNode.eval(),
+      time: formatTimeRangeNode(timeNode),
+    };
+  },
+  Rule_dayRange: function (
+    startNode,
+    _dotsText,
+    endNode,
+    timeNode,
+  ): GrammarDayRange {
+    return {
+      type: "dayRange",
+      start: startNode.eval(),
+      end: endNode.eval(),
+      time: formatTimeRangeNode(timeNode),
+    };
+  },
+  Rule_dayRangeWithHours: function (
+    startNode,
+    startTimeNode,
+    _dotsText,
+    endNode,
+    endTimeNode,
+  ): GrammarDayRangeWithHours {
+    const start = startNode.eval();
+    const startTime = startTimeNode.eval();
+    start.setHours(startTime.hours, startTime.minutes);
+
+    const end = endNode.eval();
+    const endTime = endTimeNode.eval();
+    end.setHours(endTime.hours, endTime.minutes);
+
+    return {
+      type: "dayRangeWithHours",
+      start: start,
+      end: end,
+    };
+  },
   Rule_days: function (
     dayNode,
     _commasNode,
@@ -112,6 +158,61 @@ semantics.addOperation("eval", {
       days: [dayNode, ...restDayNode.children].map((c) =>
         toWeekday(c.sourceString),
       ),
+      time: formatTimeRangeNode(timeNode),
+    };
+  },
+
+  Rule_monthlyPositions: function (
+    monthlyPositionNode,
+    _commasNode,
+    restMonthlyPositionNode,
+    _monthlyTextNode,
+    timeNode,
+  ): GrammarMonthlyPositions {
+    return {
+      type: "monthlyPositions",
+      days: [
+        monthlyPositionNode.eval(),
+        ...restMonthlyPositionNode.children.map((c) => c.eval()),
+      ],
+      time: formatTimeRangeNode(timeNode),
+    };
+  },
+
+  Rule_monthlyWeekdayPositions: function (
+    monthlyPositionNode,
+    weekdayNode,
+    _monthlyTextNode,
+    timeNode,
+  ): GrammarMonthlyWeekdayPositions {
+    return {
+      type: "monthlyWeekdayPositions",
+      weekday: [weekdayNode.eval()],
+      position: [monthlyPositionNode.eval()],
+      time: formatTimeRangeNode(timeNode),
+    };
+  },
+
+  Rule_monthlyWeekdaysPositions: function (
+    monthlyPositionNode,
+    _commasMonthlyPositionNode,
+    restMonthlyPositionNode,
+    weekdayNode,
+    _commasWeekdayNode,
+    restWeekdayNode,
+    _monthlyTextNode,
+    timeNode,
+  ): GrammarMonthlyWeekdayPositions {
+    return {
+      type: "monthlyWeekdayPositions",
+      weekday: [
+        weekdayNode.eval(),
+        ...restWeekdayNode.children.map((c) => c.eval()),
+      ],
+      position: [
+        monthlyPositionNode.eval(),
+        ...restMonthlyPositionNode.children.map((c) => c.eval()),
+      ],
       time: formatTimeRangeNode(timeNode),
     };
   },
@@ -136,10 +237,16 @@ semantics.addOperation("eval", {
   },
 
   //#region Utils
-  digit: function (a) {
+  DayOfWeek: function (a): DayOfWeek {
+    return toWeekday(a.sourceString);
+  },
+  MonthlyPosition: function (a): number {
+    return toInt(a.sourceString.replace(/[^0-9]/g, ""));
+  },
+  digit: function (a): number {
     return toInt(a.sourceString);
   },
-  Day: function (y1, y2, y3, y4, _1, m1, m2, _2, d1, d2) {
+  Day: function (y1, y2, y3, y4, _1, m1, m2, _2, d1, d2): Date {
     return new Date(
       `${y1.sourceString}${y2.sourceString}${y3.sourceString}${y4.sourceString}-${m1.sourceString}${m2.sourceString}-${d1.sourceString}${d2.sourceString}`,
     );
@@ -150,11 +257,11 @@ semantics.addOperation("eval", {
       minutes: toInt(`${m1.sourceString}${m2.sourceString}`),
     };
   },
-  TimeRange: function (start, _dash, end) {
+  TimeRange: function (start, _dash, end): TimeRange {
     return [start.eval(), end.eval()];
   },
 
-  StartingFrom: function (_at, day, hours) {
+  StartingFrom: function (_at, day, hours): StartingFrom {
     const date: Date = day.eval();
     const timeParts = formatTimeNode(hours);
     if (timeParts) {

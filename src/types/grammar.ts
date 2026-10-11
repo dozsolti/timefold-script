@@ -38,7 +38,7 @@ export type GrammarMonthlyPositions = {
   days: number[];
   time: TimeRange | null;
 };
-export type GrammarMonthlyWeekdayPosition = {
+export type GrammarMonthlyWeekdayPositions = {
   type: "monthlyWeekdayPositions";
   weekday: DayOfWeek[];
   position: number[];
@@ -50,6 +50,11 @@ export type GrammarDayRange = {
   start: Date;
   end: Date;
   time: TimeRange | null;
+};
+export type GrammarDayRangeWithHours = {
+  type: "dayRangeWithHours";
+  start: Date;
+  end: Date;
 };
 
 export type GrammarDay = {
@@ -76,3 +81,14 @@ export type GrammarDays = {
   days: DayOfWeek[];
   time: TimeRange | null;
 };
+
+export type GrammarPattern =
+  | GrammarMonthlyPositions
+  | GrammarMonthlyWeekdayPositions
+  | GrammarDayRange
+  | GrammarDayRangeWithHours
+  | GrammarDay
+  | GrammarRotation
+  | GrammarWeekdays
+  | GrammarDays
+  | GrammarEveryRange;

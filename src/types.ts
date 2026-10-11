@@ -1,15 +1,4 @@
-import {
-  GrammarEveryRange,
-  GrammarRotation,
-  GrammarWeekdays,
-  GrammarDays,
-} from "./types/grammar";
-
-export type GrammarPattern =
-  | GrammarRotation
-  | GrammarEveryRange
-  | GrammarWeekdays
-  | GrammarDays;
+import type { GrammarPattern } from "./types/grammar";
 
 export type ParseResultData<T = GrammarPattern> = {
   name: string;
@@ -22,3 +11,5 @@ export type ParseResult<T> =
       data: ParseResultData<T>;
     }
   | { success: false; errorMessage: string };
+
+export type { GrammarPattern };
